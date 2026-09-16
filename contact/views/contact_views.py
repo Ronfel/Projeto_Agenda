@@ -7,9 +7,12 @@ def index(request):
     contacts = Contact.objects\
                 .all()\
                 .filter(show=True)
+    paginator = Paginator(contacts, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'contacts': contacts,
+        'page_obj': page_obj,
         'site_title': 'Contatos - '
     }
 
@@ -28,9 +31,12 @@ def search(request):
                 .filter(show=True)\
                 .filter(Q(first_name__icontains=search_value) |
                         Q(last_name__icontains =search_value))
+    paginator = Paginator(contacts, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'contacts': contacts,
+        'page_obj': page_obj,
         'site_title': 'Search - ',
         'search_value': search_value
     }
@@ -54,3 +60,4 @@ def contact(request, contact_id):
         request,
         'contact/contact.html',
         context=context)
+
