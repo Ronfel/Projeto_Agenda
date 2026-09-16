@@ -60,3 +60,4 @@ def contact(request, contact_id):
         request,
         'contact/contact.html',
         context=context)
+
