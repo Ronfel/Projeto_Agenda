@@ -10,10 +10,9 @@
 
         <thead>
           <tr class="table-row table-row-header">
-            <th class="table-header">ID</th>
-            <th class="table-header">First Name</th>
-            <th class="table-header">Last Name</th>
-            <th class="table-header">Phone</th>
+            <th class="table-header">Primeiro Nome</th>
+            <th class="table-header">Ultimo Nome</th>
+            <th class="table-header">Telefone</th>
             <th class="table-header">E-mail</th>
           </tr>
         </thead>
@@ -26,11 +25,8 @@
                   class="table-link" 
                   href="{% url 'contact' contact.id %}"
                 >
-                  {{ contact.id }}
-                </a>
-              </td>
-              <td class="table-cel">
                 {{ contact.first_name }}
+                <a>
               </td>
               <td class="table-cel">
                 {{ contact.last_name }}

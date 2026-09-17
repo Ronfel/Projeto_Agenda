@@ -224,9 +224,14 @@ svg {
   font-size: var(--smaller-font-size);
 }
 
+.message.info {
+  background: rgba(40, 2, 255, 0.786);
+  border: 1px solid rgba(77, 73, 133, 0.373);
+}
+
 .message.success {
   background: rgba(0, 255, 0, 0.3);
-  border: 1px solid rgba(0, 255, 0, 90%);
+  border: 1px solid rgba(2, 85, 8, 0.173);
 }
 
 .message.error {
