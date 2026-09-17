@@ -7,19 +7,37 @@
 
     <nav class="menu">
       <ul class="menu-list">
+        {% if user.is_authenticated %}
         <li class="menu-item">
           <a href="{% url 'create' %}" class="menu-link">
-            Create
+            Add Contato
           </a>
         </li>
         <li class="menu-item">
-          <a href="" class="menu-link">
-            Link 2
+          <a href="{% url 'user_update' %}" class="menu-link">
+            Perfil
           </a>
         </li>
+        <li class="menu-item">
+          <a href="{% url 'logout' %}" class="menu-link">
+           Logout
+          </a>
+        </li>
+       {% else %}
+        <li class="menu-item">
+          <a href="{% url 'register' %}" class="menu-link">
+            Register
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="{% url 'login' %}" class="menu-link">
+            Login
+          </a>
+        </li>
+       {% endif %}
       </ul>
     </nav>
-
+    {% if user.is_authenticated %}
     <div class="search">
       <form 
         action="{% url 'search' %}" 
@@ -28,11 +46,12 @@
         <input 
           type="search" 
           class="search-input"
-          placeholder="Search"
+          placeholder="Buscar Contato"
           id="search"
           name="q"
           value={{ search_value }}
         >
       </form>
     </div>
+    {% endif %}
   </header>
