@@ -17,5 +17,12 @@ urlpatterns = [
     path('user/create/', views.register, name='register'),
     path('user/login/', views.login_view, name='login'),
     path('user/logout/', views.logout_view, name='logout'),
-    path('user/update/', views.user_update, name='user_update')
+    path('user/update/', views.user_update, name='user_update'),
+
+    #Category
+    path('categories', views.categories, name='categories'),
+    path('category/<int:category_id>/', views.category, name='category'),
+    path('category/create/', views.category_create, name='category_create'),
+    path('category/<int:category_id>/update/', views.category_update, name='category_update'),
+    path('category/<int:category_id>/delete/', views.category_delete, name='category_delete'),
 ]
