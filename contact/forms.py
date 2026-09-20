@@ -6,6 +6,12 @@ from django.core.exceptions import ValidationError
 
 from . import models
 
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = models.Category
+        fields = (
+            'name',
+        )
 
 class ContactForm(forms.ModelForm):
     picture = forms.ImageField(

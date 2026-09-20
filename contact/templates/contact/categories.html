@@ -1,0 +1,41 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+  {% if page_obj %}
+    <div class="responsive-table">
+      <table class="contacts-table">
+        <caption class="table-caption ">
+          Categorias
+        </caption>
+
+        <thead>
+          <tr class="table-row table-row-header">
+            <th class="table-header">Nome</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for categoria in page_obj %}
+            <tr class="table-row">
+              <td class="table-cel">
+                <a 
+                  class="table-link" 
+                  href="{% url 'category' categoria.id %}"
+                >
+                {{ categoria.name }}
+                <a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% include "global/partials/_paginator.html" %}
+  {% else %}
+    <div class="single-contact">
+      <h1 class="single-contact-name">
+        Nenhum contato encontrado.
+      </h1>
+    </div>
+  {% endif %}
+{% endblock content %}
